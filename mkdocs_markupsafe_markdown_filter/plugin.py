@@ -13,7 +13,7 @@ from jinja2.ext import Extension
 import markdown
 import markupsafe
 
-class MarkdownFilterPlugin(BasePlugin):
+class MarkupSafeMarkdownFilterPlugin(BasePlugin):
 
     config_scheme = (
     )
