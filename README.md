@@ -1,6 +1,8 @@
-# mkdocs-bootstrap-tables-plugin
+# mkdocs-markupsafe-markdown-filter
 
-This plugin adds a "markdown" template filter to mkdocs.
+This plugin adds [pallets' MarkupSafe] template filter to mkdocs.  This 
+
+[pallets' MarkupSafe]: https://github.com/pallets/markupsafe/
 
 ## Setup
 
