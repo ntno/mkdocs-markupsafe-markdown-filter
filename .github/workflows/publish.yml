@@ -1,0 +1,44 @@
+name: Publish Package
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Tag to deploy'
+        required: true
+        type: string
+
+env:
+  PYTHON_VERSION: 3.x
+
+permissions:
+  contents: read
+
+jobs:
+  publish_pypi:
+    name: Build and Publish Python package
+    if: github.event.repository.fork == false
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.tag }}
+
+      - name: Set up Python runtime
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Set up Python dependencies
+        run: pip install --upgrade build packaging twine
+
+      - name: Build Python package
+        run: python -m build
+
+      - name: Publish Python package
+        env:
+          PYPI_USERNAME: ${{ secrets.PYPI_USERNAME }}
+          PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
+        run: twine upload --disable-progress-bar -u ${PYPI_USERNAME} -p ${PYPI_PASSWORD} --comment "${{ inputs.tag }}" --verbose dist/*
+
