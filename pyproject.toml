@@ -13,12 +13,11 @@ dynamic = [
 
 authors = [
   {name = "Byrne Reese", email = "byrne@majordojo.com"},
-  {name = "Oliver Stueker", email = "ostueker@gmail.com"},
-  {name = "Natan Organick", email="mkdocs.terminal@gmail.com"},
+  {name = "Natan Organick" }
 ]
 
 maintainers = [
-   {name = "Natan Organick", email="mkdocs.terminal@gmail.com"}
+   {name = "Natan Organick" }
 ]
 
 requires-python = ">=3.8"
