@@ -2,6 +2,10 @@ from mkdocs.plugins import BasePlugin
 import markdown
 import markupsafe
 
+"""
+Registers the markupsafe 'Markup' function as a filter with the name 'markdown'
+"""
+
 class MarkupSafeMarkdownFilterPlugin(BasePlugin):
 
     config_scheme = (
