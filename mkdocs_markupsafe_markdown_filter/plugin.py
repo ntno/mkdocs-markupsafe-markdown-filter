@@ -1,11 +1,11 @@
-"""
-Registers the markupsafe 'Markup' function as a filter with the name 'markdown'
-"""
 from mkdocs.plugins import BasePlugin
 import markdown
 import markupsafe
 
 class MarkupSafeMarkdownFilterPlugin(BasePlugin):
+    """
+    Registers the markupsafe 'Markup' function as a filter with the name 'markdown'
+    """
 
     config_scheme = (
     )
@@ -22,6 +22,9 @@ class MarkupSafeMarkdownFilterPlugin(BasePlugin):
         return markupsafe.Markup(md.convert(text))
 
     def on_env(self, env, config, files):
+        """
+        A Global MkDocs event which will trigger once per build
+        """
         self.config = config
         env.filters['markdown'] = self.md_filter
         return env
