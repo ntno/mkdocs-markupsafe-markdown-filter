@@ -13,7 +13,7 @@ dynamic = [
 
 authors = [
   {name = "Byrne Reese", email = "byrne@majordojo.com"},
-  {name = "Natan Organick" }
+  {name = "Natan Organick", email = "markupsafe.markdown.filter@gmail.com" }
 ]
 
 maintainers = [
