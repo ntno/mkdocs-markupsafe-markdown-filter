@@ -1,3 +1,8 @@
+"""
+This module provides a plugin that can be used to escape special characters 
+in Markdown text so that the text can be added to HTML. 
+"""
+
 from mkdocs.plugins import BasePlugin
 import markdown
 import markupsafe
