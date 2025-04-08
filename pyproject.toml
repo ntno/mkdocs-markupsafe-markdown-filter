@@ -55,14 +55,14 @@ requires = [
 build-backend = "hatchling.build"
 
 [tool.hatch.version]
-path = "/mkdocs_markupsafe_markdown_filter/__version__.py"
+path = "mkdocs_markupsafe_markdown_filter/__version__.py"
 
 [tool.hatch.metadata.hooks.requirements_txt]
 filename = "requirements.txt"
 
 [tool.hatch.build.targets.wheel]
-include = ["/mkdocs_markupsafe_markdown_filter"]
+include = ["mkdocs_markupsafe_markdown_filter"]
 
 [tool.hatch.build.targets.sdist]
-include = ["/mkdocs_markupsafe_markdown_filter", "/requirements.txt"]
+include = ["mkdocs_markupsafe_markdown_filter", "requirements.txt"]
 
