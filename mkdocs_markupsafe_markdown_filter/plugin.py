@@ -1,15 +1,4 @@
-import os
-import sys
-import re
-from timeit import default_timer as timer
-from datetime import datetime, timedelta
-
-from mkdocs import utils as mkdocs_utils
-from mkdocs.config import config_options, Config
 from mkdocs.plugins import BasePlugin
-
-import jinja2
-from jinja2.ext import Extension
 import markdown
 import markupsafe
 
