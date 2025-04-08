@@ -1,6 +1,6 @@
 # mkdocs-markupsafe-markdown-filter
 
-This plugin adds [pallets' MarkupSafe] template filter to mkdocs.  This 
+This plugin adds [pallets' MarkupSafe] template filter to mkdocs.
 
 [pallets' MarkupSafe]: https://github.com/pallets/markupsafe/
 
