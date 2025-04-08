@@ -1,3 +1,2 @@
 mkdocs
-jinja2
 MarkupSafe
