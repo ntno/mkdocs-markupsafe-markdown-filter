@@ -1,10 +1,9 @@
-from mkdocs.plugins import BasePlugin
-import markdown
-import markupsafe
-
 """
 Registers the markupsafe 'Markup' function as a filter with the name 'markdown'
 """
+from mkdocs.plugins import BasePlugin
+import markdown
+import markupsafe
 
 class MarkupSafeMarkdownFilterPlugin(BasePlugin):
 
