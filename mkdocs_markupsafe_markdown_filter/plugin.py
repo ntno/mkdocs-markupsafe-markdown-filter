@@ -22,7 +22,7 @@ class MarkupSafeMarkdownFilterPlugin(BasePlugin):
         self.enabled = True
         self.dirs = []
 
-    def md_filter(self, text, **kwargs):
+    def md_filter(self, text):
         """
         Converts the given text to a "safe" string
         taking into account the currently enabled markdown extensions.
@@ -33,7 +33,7 @@ class MarkupSafeMarkdownFilterPlugin(BasePlugin):
         )
         return markupsafe.Markup(md.convert(text))
 
-    def on_env(self, env, config, files):
+    def on_env(self, env, config):
         """
         A Global MkDocs event which will trigger once per build
         """
