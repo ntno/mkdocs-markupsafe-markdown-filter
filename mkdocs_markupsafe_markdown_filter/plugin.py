@@ -1,6 +1,9 @@
 """
-This module provides a plugin that can be used to escape special characters 
-in Markdown text so that the text can be added to HTML. 
+This module provides a plugin that can be used to make untrusted text
+ready to insert into HTML either by escaping special characters
+or by marking the text as safe.
+
+See markupsafe for details: https://github.com/pallets/markupsafe
 """
 
 from mkdocs.plugins import BasePlugin
@@ -20,6 +23,10 @@ class MarkupSafeMarkdownFilterPlugin(BasePlugin):
         self.dirs = []
 
     def md_filter(self, text, **kwargs):
+        """
+        Converts the given text to a "safe" string
+        taking into account the currently enabled markdown extensions.
+        """
         md = markdown.Markdown(
             extensions=self.config['markdown_extensions'],
             extension_configs=self.config['mdx_configs'] or {}
