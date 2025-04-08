@@ -18,7 +18,7 @@ jobs:
   publish_pypi:
     name: Build and Publish Python package
     if: github.event.repository.fork == false
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
