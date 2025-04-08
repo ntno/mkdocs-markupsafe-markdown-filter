@@ -33,4 +33,3 @@ class MarkupSafeMarkdownFilterPlugin(BasePlugin):
         self.config = config
         env.filters['markdown'] = self.md_filter
         return env
-
