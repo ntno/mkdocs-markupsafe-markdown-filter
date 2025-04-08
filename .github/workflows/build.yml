@@ -1,0 +1,33 @@
+name: Build Package
+
+on:
+  pull_request:
+
+env:
+  PYTHON_VERSION: 3.x
+
+permissions:
+  contents: read
+
+jobs:
+  build_package:
+    name: Build Python package
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.8", "3.9", "3.10", "3.11", "3.12"]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python runtime
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Set up Python dependencies
+        run: pip install --upgrade build packaging twine
+
+      - name: Build Python package
+        run: python -m build

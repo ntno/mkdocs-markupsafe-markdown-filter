@@ -13,7 +13,7 @@ from jinja2.ext import Extension
 import markdown
 import markupsafe
 
-class MarkdownFilterPlugin(BasePlugin):
+class MarkupSafeMarkdownFilterPlugin(BasePlugin):
 
     config_scheme = (
     )
@@ -33,4 +33,3 @@ class MarkdownFilterPlugin(BasePlugin):
         self.config = config
         env.filters['markdown'] = self.md_filter
         return env
-

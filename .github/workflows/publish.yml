@@ -13,12 +13,13 @@ env:
 
 permissions:
   contents: read
+  id-token: write #required for OIDC
 
 jobs:
   publish_pypi:
     name: Build and Publish Python package
-    if: github.event.repository.fork == false
     runs-on: ubuntu-24.04
+    environment: pypi
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -36,9 +37,7 @@ jobs:
       - name: Build Python package
         run: python -m build
 
-      - name: Publish Python package
-        env:
-          PYPI_USERNAME: ${{ secrets.PYPI_USERNAME }}
-          PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
-        run: twine upload --disable-progress-bar -u ${PYPI_USERNAME} -p ${PYPI_PASSWORD} --comment "${{ inputs.tag }}" --verbose dist/*
-
+      - name: Publish package distributions to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          verbose: true
